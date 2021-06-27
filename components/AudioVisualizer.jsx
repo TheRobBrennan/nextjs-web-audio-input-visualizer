@@ -11,6 +11,7 @@ class AudioVisualizer extends Component {
   componentDidUpdate() {
     // Draw a line from left to right whenever we receive new audio data
     this.draw()
+    // this.drawPulsingRect()
   }
 
   draw() {
@@ -61,8 +62,36 @@ class AudioVisualizer extends Component {
     context.stroke()
   }
 
+  drawPulsingRect() {
+    /**
+     * This function will take the audioData supplied as a prop and draw a line from left to right between each data point in the array.
+     */
+    const { audioData } = this.props
+
+    // Canvas
+    const canvas = this.canvas.current
+    const height = canvas.height
+    const width = canvas.width
+
+    // Drawing context and style
+    const context = canvas.getContext("2d")
+
+    // Clear our rectangle when drawing each line. Look at what happens if you decide to comment this out. Neat visual effect?
+    context.clearRect(0, 0, width, height)
+
+    // For each data point in our audio stream
+    for (const item of audioData) {
+      const red = item
+      const green = 255 - item
+      const blue = item / 2
+
+      context.fillStyle = "rgb(" + red + ", " + green + ", " + blue + ")"
+      context.fillRect(item * 2, 0, 1, 200)
+    }
+  }
+
   render() {
-    return <canvas width="500" height="500" ref={this.canvas} />
+    return <canvas width="500" height="200" ref={this.canvas} />
   }
 }
 
