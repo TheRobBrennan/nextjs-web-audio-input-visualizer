@@ -11,11 +11,15 @@ class App extends Component {
   }
 
   async getMicrophone() {
-    const audio = await navigator.mediaDevices.getUserMedia({
-      audio: true,
-      video: false,
-    })
-    this.setState({ audio })
+    try {
+      const audio = await navigator.mediaDevices.getUserMedia({
+        audio: true,
+        video: false,
+      })
+      this.setState({ audio })
+    } catch (e) {
+      window.alert(`Sorry. This will not work for you.\n\n${e}`)
+    }
   }
 
   stopMicrophone() {
