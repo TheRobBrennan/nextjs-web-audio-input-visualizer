@@ -10,8 +10,8 @@ class AudioVisualizer extends Component {
 
   componentDidUpdate() {
     // Draw a line from left to right whenever we receive new audio data
-    // this.draw()
-    this.drawPulsingRect()
+    this.draw()
+    // this.drawPulsingRect()
   }
 
   draw() {
