@@ -18,5 +18,13 @@
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1",
     "typescript": "4.3.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRobBrennan/nextjs-web-audio-input-visualizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheRobBrennan/nextjs-web-audio-input-visualizer/issues"
+  },
+  "homepage": "https://github.com/TheRobBrennan/nextjs-web-audio-input-visualizer#readme"
 }
