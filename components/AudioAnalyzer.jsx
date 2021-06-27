@@ -15,11 +15,12 @@ class AudioAnalyzer extends Component {
     // Create a Web Audio API AnalyserNode
     this.analyser = this.audioContext.createAnalyser()
 
+    // An unsigned integer, representing the window size of the Fast Fourier Transform (FFT), given in number of samples.
+    const fftSize = this.analyser.frequencyBinCount
+    // const fftSize = Math.pow(2, 10) // Must be a power of 2 between 2^5 and 2^15: 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, and 32768. Defaults to 2048.
+
     // Store the waveform data that the AnalyserNode will be creating
-    //
-    //  What is this.analyser.frequencyBinCount?
-    //    It's an unsigned integer that generally equates to the number of data values available to play with for visualization
-    this.dataArray = new Uint8Array(this.analyser.frequencyBinCount)
+    this.dataArray = new Uint8Array(fftSize)
 
     // We passed the media stream from the microphone into this component as a prop. We need to turn it into a source for the Web Audio API.
     this.source = this.audioContext.createMediaStreamSource(this.props.audio)
