@@ -1,0 +1,22 @@
+{
+  "name": "nextjs-web-audio-input-visualizer",
+  "version": "0.0.0",
+  "description": "A quick and dirty example for visualizing audio input from the web browser.",
+  "keywords": [],
+  "author": "Rob Brennan <rob@therobbrennan.com> (therobbrennan.com)",
+  "license": "ISC",
+  "scripts": {
+    "dev": "cd app && npm run dev",
+    "build": "cd app && npm run build",
+    "start": "cd app && npm run start",
+    "lint": "cd app && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRobBrennan/nextjs-web-audio-input-visualizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheRobBrennan/nextjs-web-audio-input-visualizer/issues"
+  },
+  "homepage": "https://github.com/TheRobBrennan/nextjs-web-audio-input-visualizer#readme"
+}
