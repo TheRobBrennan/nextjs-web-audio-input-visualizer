@@ -2,6 +2,10 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) - a quick and dirty example for visualizing audio input from the web browser.
 
+![screenshots/demo.gif](screenshots/demo.gif)
+
+You can view the [demo](https://nextjs-web-audio-input-visualizer.vercel.app) at [https://nextjs-web-audio-input-visualizer.vercel.app](https://nextjs-web-audio-input-visualizer.vercel.app)
+
 ## Getting Started
 
 First, run the development server:
