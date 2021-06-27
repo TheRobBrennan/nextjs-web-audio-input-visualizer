@@ -2,7 +2,7 @@ import Head from "next/head"
 import Image from "next/image"
 import styles from "../styles/Home.module.css"
 
-import AudioAnalyzer from "../components/AudioAnalyzer"
+import App from "../components/App"
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <AudioAnalyzer />
+        <App />
       </main>
 
       <footer className={styles.footer}>
