@@ -9,28 +9,55 @@ class AudioAnalyzer extends Component {
   }
 
   componentDidMount() {
+    // Create a Web Audio API AudioContext object
     this.audioContext = new (window.AudioContext || window.webkitAudioContext)()
+
+    // Create a Web Audio API AnalyserNode
     this.analyser = this.audioContext.createAnalyser()
+
+    // Store the waveform data that the AnalyserNode will be creating
+    //
+    //  What is this.analyser.frequencyBinCount?
+    //    It's an unsigned integer that generally equates to the number of data values available to play with for visualization
     this.dataArray = new Uint8Array(this.analyser.frequencyBinCount)
+
+    // We passed the media stream from the microphone into this component as a prop. We need to turn it into a source for the Web Audio API.
     this.source = this.audioContext.createMediaStreamSource(this.props.audio)
+
+    // Connect the AnalyserNode to to our audio stream
     this.source.connect(this.analyser)
+
+    // Kick off the animation loop
     this.rafId = requestAnimationFrame(this.tick)
   }
 
   tick() {
+    // Copy the current waveform as an array of integers into the dataArray
     this.analyser.getByteTimeDomainData(this.dataArray)
+
+    // Update the component's state with the new waveform data
     this.setState({ audioData: this.dataArray })
+
+    // Convert our Uint8Array to a regular JavaScript array for debugging
+    // console.log(Array.from(this.dataArray).join(","))
+
+    // Call upon the browser's requestAnimationFrame API to grab the next set of data
     this.rafId = requestAnimationFrame(this.tick)
   }
 
   componentWillUnmount() {
+    // Clean up our resources by canceling the animation frame and disconnecting the audio nodes
     cancelAnimationFrame(this.rafId)
     this.analyser.disconnect()
     this.source.disconnect()
   }
 
   render() {
-    return <AudioVisualizer audioData={this.state.audioData} />
+    return (
+      <>
+        <AudioVisualizer audioData={this.state.audioData} />
+      </>
+    )
   }
 }
 
