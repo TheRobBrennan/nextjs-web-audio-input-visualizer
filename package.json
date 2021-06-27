@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "demo": "open https://nextjs-web-audio-input-visualizer.vercel.app",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
