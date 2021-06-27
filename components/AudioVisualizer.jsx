@@ -86,7 +86,7 @@ class AudioVisualizer extends Component {
       const blue = item / 2
 
       context.fillStyle = "rgb(" + red + ", " + green + ", " + blue + ")"
-      context.fillRect(item * 2, 0, 2, 200)
+      context.fillRect(item * 2, 0, 1, 200)
     }
   }
 
